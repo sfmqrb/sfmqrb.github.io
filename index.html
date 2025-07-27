@@ -11,6 +11,32 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link href="font/css/font-awesome.min.css" rel="stylesheet">
   <style>
+    html {
+      font-size: 100%; /* This ensures 1rem = 16px in most browsers */
+    }
+    
+    body {
+      font-size: 1rem; /* 16px */
+    }
+    
+    h1 {
+      font-size: 2.5rem; /* 40px */
+    }
+    
+    h2 {
+      font-size: 2rem;   /* 32px */
+    }
+    
+    h3 {
+      font-size: 1.5rem; /* 24px */
+    }
+    p {
+      font-size: 1.1rem;   /* 16px */
+      line-height: 1.8 ; /* 24px */
+    }
+    .justify {
+      text-align: justify;
+    }
     body { margin: 0; font-family: Arial, sans-serif; }
     nav { position: fixed; top: 0; left: 0; width: 100%; background: #111; z-index: 1000; }
     .menu-toggle { display: none; }
@@ -24,14 +50,13 @@
     h2 { color: lightgreen; margin-bottom: 20px; }
     .dark { color: #008f41; }
     h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; margin-bottom: 20px; }
-    p { line-height: 1.6; }
     .intro-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
     .intro-text { flex: 1 1 300px; max-width: 600px;}
     .intro-img { flex: 0 0 300px; width: 300px; height: 300px; object-fit: cover; border-radius: 50%; margin: 20px; }
     .item { max-width: 800px; margin: 0 auto 60px auto; }
     a.btn-primary { background-color: #444; border-color: #444; color: #fff; padding: 10px 20px; display: inline-block; text-decoration: none; }
     a.btn-primary:hover { background-color: #222; border-color: #222; }
-    .contact-icons a { color: #fff; margin: 0 15px; font-size: 24px; text-decoration: none; }
+    .contact-icons a { color: #fff; margin: 0 15px; font-size: 1.5rem; text-decoration: none; }
     .contact-icons a:hover { color: #ccc; }
     .everything-center { display: flex; justify-content: center; align-items: center; flex-direction: column; }
     .container { max-width: 1000px; margin: 0 auto; padding: 20px;}
@@ -48,10 +73,10 @@
 
     /* Mobile view */
     @media (max-width: 767px) {
-      nav { display: none; }
       section { padding: 40px 15px; }
       .item { margin-bottom: 40px; }
     }
+    
   </style>
 </head>
 <body>
