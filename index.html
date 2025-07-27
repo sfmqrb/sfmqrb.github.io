@@ -37,6 +37,11 @@
     .container { max-width: 1000px; margin: 0 auto; padding: 20px;}
     .nolinks { text-decoration: none; color: darkblue; font-style: italic; }
     .nolinks-light-grey { text-decoration: none; color: lightgrey; font-style: italic; }
+    .education-entry,
+    .award-entry {
+      margin-bottom: 40px;
+    }
+
     /* Mobile view */
     @media (max-width: 767px) {
       nav { display: none; }
@@ -69,8 +74,8 @@
       <div class="item text-center">
         <h2 class="dark">Publications</h2>
         <div>
-          <h3>Sphinx: A Succinct Perfect Hash Index for x86</h3>
-          <p>Sajad Faghfoor Maghrebi &amp; Niv Dayan. <em>VLDB 2025</em> – Introduces a space‑optimal perfect hash index leveraging x86 bitwise operations for constant‑time lookups. <a href="#">[Code]</a></p>
+          <h3>Sphinx: A Succinct Perfect Hash Index for x86</h3>  
+                        <p>Sajad Faghfoor Maghrebi &amp; Niv Dayan. <em>VLDB 2025</em> — <a href="https://www.dropbox.com/scl/fi/gh2j8ipdf5nybfttmaskp/Sphinx.pdf?rlkey=dgpxxw1pzd1dpksx2fcr0apx8&st=pqexva5t&dl=0">[PDF]</a> <a href="https://github.com/sfmqrb/sphinx">[Code]</a> </p>
         </div>
       </div>
     </div>
@@ -121,35 +126,36 @@
   </section>
 
   <!-- education -->
-    <section id="education" class="bg-black">
-        <div class="container">
-        <div class="item">
-            <h2 class="text-center">Education</h2>
-            <div>
-            <h3>University of Toronto</h3>
-            <p><strong>PhD, Computer Science</strong> (Sep 2023 - Present) — Grade: A+</p>
-            </div>
-            <div>
-            <h3>Sharif University of Technology</h3>
-            <p><strong>B.Sc., Computer Engineering</strong> (2018–2023) — GPA: 3.85/4.00</p>
-            </div>
-        </div>
-        </div>
-    </section>
+  <section id="education" class="bg-black">
+    <div class="container">
+      <div class="item">
+        <h2 class="text-center">Education</h2>
 
-    <!-- Awards and Honors -->
-    <section id="awards" class="bg-white">
-      <div class="container">
-        <div class="item">
-          <h2 class="text-center dark">Awards and Honors</h2>
-          <div>
-            <h3>Ranked 6th among over 100,000 participants in the Iranian National University Entrance Exam</h3>
-            <p><strong>January 2018</strong></p>
-          </div>
+        <div class="education-entry">
+          <h3>University of Toronto</h3>
+          <p><strong>PhD, Computer Science</strong> (Sep 2023 – Present) — Grade: A+</p>
+        </div>
+
+        <div class="education-entry">
+          <h3>Sharif University of Technology</h3>
+          <p><strong>B.Sc., Computer Engineering</strong> (2018 – 2023) — GPA: 3.85/4.00</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- Awards and Honors -->
+  <section id="awards" class="bg-white">
+    <div class="container">
+      <div class="item">
+        <h2 class="text-center dark">Awards and Honors</h2>
+        <div class="award-entry">
+          <h3>Ranked 6th among over 100,000 participants in the Iranian National University Entrance Exam</h3>
+          <p><strong>January 2018</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- Contact -->
   <section id="contactMe" class="bg-black contact-section">
     <div class="container everything-center">
