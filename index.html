@@ -44,7 +44,17 @@
     .overlay { display: none; }
     section { padding: 60px 15px; scroll-margin-top: 40px; }
     contact-section { padding: 30px 15px;}
-    .bg-black { background-color: #000; color: #fff; }
+    .bg-black {
+      /* make sure this comes after your other .bg-black */
+      position: relative;
+      /* wallpaper stays fixed & covers */
+      background: url('images/bg.png') no-repeat fixed center center / cover;
+      /* a subtle dark layer so text stays legible */
+      background-color: rgba(0, 0, 0, 0.8);
+      /* blend the color over the image */
+      background-blend-mode: overlay;
+      color: #fff;
+    }
     .bg-white { background-color: #fff; color: #000; }
     /* Unified green titles */
     h2 { color: lightgreen; margin-bottom: 20px; }
