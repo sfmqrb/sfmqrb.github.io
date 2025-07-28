@@ -114,6 +114,23 @@
       align-items: center;   /* vertical centering */
     }
 
+    .pub-entry {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .pub-logo {
+      height: 6rem;
+    }
+    
+    .pub-title {
+      margin-bottom: 5px;
+    }
+    
+    .pub-authors {
+      margin: 0;
+    }
     /* Mobile view */
     @media (max-width: 767px) {
       section { padding: 40px 15px; }
@@ -159,9 +176,16 @@
     <div class="container">
       <div class="item text-center">
         <h2 class="dark">Publications</h2>
-        <div class="text-right">
-          <h3>Sphinx: A Succinct Perfect Hash Index for x86</h3>  
-          <p>Sajad Faghfoor Maghrebi &amp; Niv Dayan. <em>VLDB 2025</em> — [<a class=nolinks href="https://www.dropbox.com/scl/fi/gh2j8ipdf5nybfttmaskp/Sphinx.pdf?rlkey=dgpxxw1pzd1dpksx2fcr0apx8&amp;st=pqexva5t&amp;dl=0">PDF</a>] [<a class=nolinks href="https://github.com/sfmqrb/sphinx">Code</a>] </p>
+        <div class="pub-entry">
+          <img src="images/sphinx.png" alt="Sphinx Logo" class="pub-logo" />
+          <div>
+            <h3 class="pub-title">Sphinx: A Succinct Perfect Hash Index for x86</h3>  
+            <p class="pub-authors">
+              Sajad Faghfoor Maghrebi &amp; Niv Dayan. <em>VLDB 2025</em> — 
+              [<a class="nolinks" href="https://www.dropbox.com/scl/fi/gh2j8ipdf5nybfttmaskp/Sphinx.pdf?rlkey=dgpxxw1pzd1dpksx2fcr0apx8&st=pqexva5t&dl=0">PDF</a>] 
+              [<a class="nolinks" href="https://github.com/sfmqrb/sphinx">Code</a>] 
+            </p>
+          </div>
         </div>
       </div>
     </div>
