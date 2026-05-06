@@ -34,137 +34,321 @@
   }
   </script>
 
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link href="css/animate.css" rel="stylesheet" media="screen">
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <link href="font/css/font-awesome.min.css" rel="stylesheet">
+
   <style>
-    html {
-      font-size: 100%; /* This ensures 1rem = 16px in most browsers */
-      height: 100%;
-      margin: 0;
+    :root {
+      --accent: #7ee0a4;
+      --accent-strong: #a3ebbf;
+      --accent-dark: #0a8a4a;
+      --ink: #1a1a1a;
+      --ink-soft: #555;
+      --paper: #fbfbf9;
+      --card-dark-bg: rgba(255,255,255,0.045);
+      --card-dark-border: rgba(255,255,255,0.09);
+      --card-light-bg: #ffffff;
+      --card-light-border: #ececec;
     }
-    
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { font-size: 100%; height: 100%; margin: 0; scroll-behavior: smooth; }
     body {
-      font-size: 1rem; /* 16px */
-      height: 100%;
-      margin: 0;
+      font-size: 1rem; height: 100%; margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.01em;
     }
-    
-    h1 {
-      font-size: 2.5rem; /* 40px */
+
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
     }
-    
-    h2 {
-      font-size: 2rem;   /* 32px */
-    }
-    
-    h3 {
-      font-size: 1.5rem; /* 24px */
-    }
-    p {
-      font-size: 1.1rem;   /* 16px */
-      line-height: 1.8 ; /* 24px */
-    }
-    .justify {
-      text-align: justify;
-    }
-    body { margin: 0; font-family: Arial, sans-serif; }
-    nav { position: fixed; top: 0; left: 0; width: 100%; background: #111; z-index: 1000; }
-    .menu-toggle { display: none; }
-    .menuLinks { display: none; }
-    .overlay { display: none; }
-    section { padding: 40px 15px; scroll-margin-top: 40px; }
-    contact-section { padding: 30px 15px;}
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 2.1rem; margin: 0 0 6px; color: var(--accent); }
+    h3 { font-size: 1.3rem; font-weight: 600; margin: 0 0 10px; }
+    p  { font-size: 1.04rem; line-height: 1.75; margin: 0 0 14px; }
+
+    .bg-white h2 { color: var(--accent-dark); }
+    .dark { color: var(--accent-dark); }
+
+    /* Section scaffolding */
+    section { padding: 90px 15px; scroll-margin-top: 30px; position: relative; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+    .item { max-width: 1000px; margin: 0 auto 40px auto; }
+
     .bg-black {
       position: relative;
       background: url('images/bg.png') no-repeat fixed center center / cover;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.82);
       background-blend-mode: overlay;
-      color: #fff;
+      color: #f3f3f3;
     }
-    .bg-white { background-color: #fff; color: #000; }
-    /* Unified green titles */
-    h2 { color: lightgreen; margin-bottom: 20px; }
-    .dark { color: #008f41; }
-    h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; margin-bottom: 20px; }
-    .intro-row { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; }
-    .intro-text { flex: 1 1 300px; max-width: 800px; text-align: left;}
-    .intro-img { flex: 0 0 300px; width: 300px; height: 300px; object-fit: cover; border-radius: 50%; margin: 20px; }
-    .item { max-width: 1000px; margin: 0 auto 60px auto; }
-    a.btn-primary { background-color: #444; border-color: #444; color: #fff; padding: 10px 20px; display: inline-block; text-decoration: none; }
-    a.btn-primary:hover { background-color: #222; border-color: #222; }
-    .contact-icons a { color: #fff; margin: 0 15px; font-size: 1.5rem; text-decoration: none; }
-    .contact-icons a:hover { color: #ccc; }
-    .everything-center { display: flex; justify-content: center; align-items: center; flex-direction: column; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 20px;}
-    .nolinks { text-decoration: none; color: darkgreen; font-style: italic; }
-    .nolinks-light-grey { text-decoration: none; color: #cfc; font-style: italic; }
-    .education-entry,
-    .award-entry {
-      margin-bottom: 40px;
+    .bg-white { background-color: var(--paper); color: var(--ink); }
+
+    .text-center { text-align: center; }
+
+    /* Section heading kit: tag + title + accent bar */
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 500;
+      opacity: 0.7;
+      margin-bottom: 6px;
     }
-    /* to right align the text */ 
-    .text-right {
-      text-align: left;
+    .accent-bar {
+      display: block;
+      width: 44px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px;
+      margin: 4px 0 26px;
     }
+    .text-center .accent-bar { margin-left: auto; margin-right: auto; }
+    .bg-white .accent-bar { background: var(--accent-dark); }
+
+    /* Intro */
     .intro {
-      height: calc(100vh - 80px);
+      min-height: calc(100vh);
       display: flex;
-      align-items: center;   /* vertical centering */
+      align-items: center;
+    }
+    .intro-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .intro-text { flex: 1 1 320px; max-width: 680px; text-align: left; }
+    .intro-img {
+      flex: 0 0 240px;
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(140deg, var(--accent), rgba(255,255,255,0.05) 65%);
+      box-shadow: 0 0 0 1px rgba(126,224,164,0.3), 0 22px 50px rgba(0,0,0,0.4);
+    }
+    .tagline {
+      display: block;
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.72);
+      margin: -10px 0 22px;
     }
 
+    /* Links */
+    a.nolinks {
+      text-decoration: none;
+      color: var(--accent-dark);
+      font-style: italic;
+      border-bottom: 1px dashed rgba(10,138,74,0.4);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    a.nolinks:hover { color: #066032; border-color: #066032; }
+    a.nolinks-light-grey {
+      text-decoration: none;
+      color: #d6f0df;
+      font-style: italic;
+      border-bottom: 1px dashed rgba(214,240,223,0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    a.nolinks-light-grey:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Chips */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .chip {
+      display: inline-block;
+      padding: 6px 13px;
+      font-size: 0.85rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.13);
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .chip:hover {
+      background: rgba(126,224,164,0.12);
+      border-color: rgba(126,224,164,0.45);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .chip.accent {
+      background: rgba(126,224,164,0.10);
+      border-color: rgba(126,224,164,0.4);
+      color: var(--accent);
+    }
+
+    /* Cards */
+    .card-entry {
+      padding: 22px 26px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .card-entry:last-child { margin-bottom: 0; }
+    .bg-black .card-entry {
+      background: var(--card-dark-bg);
+      border: 1px solid var(--card-dark-border);
+    }
+    .bg-black .card-entry:hover {
+      transform: translateY(-3px);
+      border-color: rgba(126,224,164,0.4);
+      background: rgba(255,255,255,0.06);
+    }
+    .bg-white .card-entry {
+      background: var(--card-light-bg);
+      border: 1px solid var(--card-light-border);
+    }
+    .bg-white .card-entry:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.06);
+      border-color: rgba(10,138,74,0.28);
+    }
+
+    /* Publication entry */
     .pub-entry {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
+      text-align: left;
     }
-    
-    .pub-logo {
-      height: 6rem;
+    .pub-logo { height: 5.5rem; flex-shrink: 0; }
+    .pub-title { margin-bottom: 5px; }
+    .pub-authors { margin: 0; font-size: 0.98rem; color: var(--ink-soft); }
+
+    /* Side rail nav */
+    .siderail {
+      position: fixed;
+      left: 22px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-    
-    .pub-title {
-      margin-bottom: 5px;
+    .siderail a {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: rgba(140,140,140,0.55);
+      position: relative;
+      transition: background 0.25s ease, transform 0.25s ease;
     }
-    
-    .pub-authors {
-      margin: 0;
+    .siderail a::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      background: rgba(255,255,255,0.92);
+      padding: 3px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      white-space: nowrap;
+      transition: opacity 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
-    /* Mobile view */
+    .siderail a:hover { background: var(--accent); transform: scale(1.3); }
+    .siderail a.active { background: var(--accent); transform: scale(1.3); }
+    .siderail a:hover::after { opacity: 1; }
+
+    /* Reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Contact */
+    .contact-section { padding: 60px 15px; }
+    .everything-center { display: flex; justify-content: center; align-items: center; flex-direction: column; }
+    .contact-icons a {
+      color: #fff;
+      margin: 0 14px;
+      font-size: 1.45rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .contact-icons a:hover { color: var(--accent); transform: translateY(-2px); }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      .siderail { display: none; }
+    }
     @media (max-width: 767px) {
-      section { padding: 40px 15px; }
-      .item { margin-bottom: 40px; }
-      .intro {
-        height: auto; /* Allow intro section to adjust height */
-      }
-      .intro-row {
-        flex-direction: column;
-        align-items: center;
-      }
-      .intro-text {
-        padding: 0 10px;
-      }
-      .intro-img {
-        width: 80%;
-        height: auto;
-        margin: 20px 0;
-      }
+      h1 { font-size: 2.1rem; }
+      h2 { font-size: 1.7rem; }
+      h3 { font-size: 1.18rem; }
+      section { padding: 60px 15px; }
+      .item { margin-bottom: 32px; }
+      .intro { min-height: auto; }
+      .intro-row { flex-direction: column-reverse; align-items: center; gap: 24px; }
+      .intro-text { padding: 0 6px; }
+      .intro-img { width: 200px; height: 200px; flex-basis: auto; margin: 8px 0 4px; }
+      .pub-entry { flex-direction: column; text-align: center; gap: 14px; }
+      .card-entry { padding: 20px; }
     }
   </style>
 </head>
 <body>
-  
+
+  <!-- Side rail navigation -->
+  <nav class="siderail" aria-label="Section navigation">
+    <a href="#intro" data-label="About" aria-label="About"></a>
+    <a href="#publications" data-label="Publications" aria-label="Publications"></a>
+    <a href="#education" data-label="Education" aria-label="Education"></a>
+    <a href="#awards" data-label="Awards" aria-label="Awards"></a>
+    <a href="#experience" data-label="Experience" aria-label="Experience"></a>
+    <a href="#projects" data-label="Projects" aria-label="Projects"></a>
+    <a href="#contactMe" data-label="Contact" aria-label="Contact"></a>
+  </nav>
+
   <!-- Introduction -->
   <section id="intro" class="bg-black intro">
     <div class="container">
-      <div class="intro-row item">
+      <div class="intro-row item reveal">
         <div class="intro-text">
-          <h2>About Me</h2>
-          
-          <p>I'm <strong>Sajad Faghfoor Maghrebi</strong>, a second-year PhD student in the SysNet group at the University of Toronto. I have the pleasure of being supervised by <a class="nolinks-light-grey" href="https://nivdayan.net">Prof. Niv Dayan</a> at ORCA Lab.</p>
-          <p>My research focuses on hardware-aware indexes. I am interested in creating efficient data systems and indexing techniques that minimize data storage and access costs while scaling effectively. My work bridges theory and practice, which I find especially rewarding. These days, I am curious about scalable vector indexes, a cornerstone of semantic retrieval in AI.</p>
-          <p>When I'm not working, I enjoy <a href="https://www.adventureiran.com/tehran-trekking-tours/" class=nolinks-light-grey>hiking, biking, and climbing</a>. I find profound joy in the <a href="https://www.mehdiakhavansales.com/winter/" class="nolinks-light-grey">poetry of Akhavan Sales.</a> I like reading about <a href="https://www.goodreads.com/book/show/308060.The_Age_of_Extremes" class="nolinks-light-grey">history</a> and <a href="https://www.goodreads.com/book/show/12870068-the-etymologicon" class="nolinks-light-grey">etymology</a>.</p>
+          <span class="section-tag">About</span>
+          <h2>Hi, I'm Sajad.</h2>
+          <span class="accent-bar"></span>
+          <span class="tagline">PhD @ University of Toronto · hardware-aware indexes . data structures . vector search</span>
+
+          <p>I'm <strong>Sajad Faghfoor Maghrebi</strong>, a second-year PhD student in the SysNet group at the University of Toronto, supervised by <a class="nolinks-light-grey" href="https://nivdayan.net">Prof. Niv Dayan</a> at ORCA Lab.</p>
+
+          <p>My research focuses on hardware-aware indexes — efficient data systems and indexing techniques that minimize storage and access costs while scaling effectively. I enjoy work that bridges theory and practice. These days I'm curious about scalable vector indexes, a cornerstone of semantic retrieval in AI.</p>
+
+          <p style="margin-bottom:10px">Outside of work, I'm into:</p>
+          <div class="chips">
+            <a class="chip" href="https://www.adventureiran.com/tehran-trekking-tours/">Hiking, biking &amp; climbing</a>
+            <a class="chip" href="https://www.mehdiakhavansales.com/winter/">Akhavan Sales' poetry</a>
+            <a class="chip" href="https://www.goodreads.com/book/show/308060.The_Age_of_Extremes">History</a>
+            <a class="chip" href="https://www.goodreads.com/book/show/12870068-the-etymologicon">Etymology</a>
+            <a class="chip" href="https://en.wikipedia.org/wiki/Risk:_Global_Domination" target="_blank" rel="noopener">Strategy &amp; diplomacy games</a>
+          </div>
         </div>
         <img src="images/sajad.png" alt="Sajad Faghfoor Maghrebi" class="intro-img">
       </div>
@@ -174,38 +358,44 @@
   <!-- Publications -->
   <section id="publications" class="bg-white">
     <div class="container">
-      <div class="item text-center">
+      <div class="item text-center reveal">
+        <span class="section-tag">Research</span>
         <h2 class="dark">Selected Publications</h2>
-        <div class="pub-entry">
-          <img src="images/sphinx.png" alt="Sphinx Logo" class="pub-logo" />
-          <div>
-            <h3 class="pub-title">Sphinx: A Succinct Perfect Hash Index for x86</h3>  
-            <p class="pub-authors">
-              Sajad Faghfoor Maghrebi &amp; Niv Dayan. <em>VLDB 2025</em> — 
-              [<a class="nolinks" href="https://www.vldb.org/pvldb/vol18/p4424-maghrebi.pdf">PDF</a>] 
-              [<a class="nolinks" href="https://github.com/sfmqrb/sphinx">Code</a>] 
-              [<a class="nolinks" href="https://www.youtube.com/watch?v=bba700fw7Jg">Video</a>] 
-            </p>
+        <span class="accent-bar"></span>
+        <div class="card-entry">
+          <div class="pub-entry">
+            <img src="images/sphinx.png" alt="Sphinx Logo" class="pub-logo" />
+            <div>
+              <h3 class="pub-title">Sphinx: A Succinct Perfect Hash Index for x86</h3>
+              <p class="pub-authors">
+                Sajad Faghfoor Maghrebi &amp; Niv Dayan. <em>VLDB 2025</em> —
+                [<a class="nolinks" href="https://www.vldb.org/pvldb/vol18/p4424-maghrebi.pdf">PDF</a>]
+                [<a class="nolinks" href="https://github.com/sfmqrb/sphinx">Code</a>]
+                [<a class="nolinks" href="https://www.youtube.com/watch?v=bba700fw7Jg">Video</a>]
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-<!-- education -->
+  <!-- Education -->
   <section id="education" class="bg-black">
     <div class="container">
-      <div class="item">
-        <h2 class="text-center">Education</h2>
+      <div class="item reveal">
+        <span class="section-tag">Education</span>
+        <h2>Education</h2>
+        <span class="accent-bar"></span>
 
-        <div class="education-entry">
+        <div class="card-entry">
           <h3>University of Toronto</h3>
-          <p><strong>PhD, Computer Science</strong> (Sep 2023 – Present) — Grade: A+</p>
+          <p><strong>PhD, Computer Science</strong> (Sep 2023 – Present) — Grade: A+</p>
         </div>
 
-        <div class="education-entry">
+        <div class="card-entry">
           <h3>Sharif University of Technology</h3>
-          <p><strong>B.Sc., Computer Engineering</strong> (2018 – 2023) — GPA: 3.85/4.00</p>
+          <p><strong>B.Sc., Computer Engineering</strong> (2018 – 2023) — GPA: 3.85/4.00</p>
         </div>
       </div>
     </div>
@@ -214,34 +404,45 @@
   <!-- Awards and Honors -->
   <section id="awards" class="bg-white">
     <div class="container">
-      <div class="item">
-        <h2 class="text-center dark">Awards and Honors</h2>
-        <div class="award-entry">
+      <div class="item reveal">
+        <span class="section-tag">Recognition</span>
+        <h2 class="dark">Awards and Honors</h2>
+        <span class="accent-bar"></span>
+        <div class="card-entry">
           <h3>Ranked 6th among over 100,000 participants in the Iranian National University Entrance Exam</h3>
           <p><strong>Jan 2018</strong></p>
         </div>
       </div>
     </div>
   </section>
+
   <!-- Experience -->
   <section id="experience" class="bg-black">
     <div class="container">
-      <div class="item">
-        <h2 class="text-center">Work Experience</h2>
-        <div>
+      <div class="item reveal">
+        <span class="section-tag">Career</span>
+        <h2>Work Experience</h2>
+        <span class="accent-bar"></span>
+
+        <div class="card-entry">
           <h3>Teacher Assistant, University of Toronto</h3>
-          <p><strong>Sep 2023 – Present</strong> — Assisted in courses like Introduction to Software Engineering (CSCC01, CSC301), Design and Analysis of Data Structures (CSCB63), 2x Introduction to Databases (CSC343), Introduction to Computer Science (CSC148), Database System Technology (<a href="https://www.nivdayan.net/database-system-technology-csc443" class=nolinks-light-grey>CSC443</a>), and Programming on the Web (<a href="https://www.cs.toronto.edu/~kianoosh/courses/csc309/#team" class=nolinks-light-grey>Lead-TA CSC309</a>).</p>
-        <div>
+          <p><strong>Sep 2023 – Present</strong> — Assisted in courses like Introduction to Software Engineering (CSCC01, CSC301), Design and Analysis of Data Structures (CSCB63), 2x Introduction to Databases (CSC343), Introduction to Computer Science (CSC148), Database System Technology (<a href="https://www.nivdayan.net/database-system-technology-csc443" class="nolinks-light-grey">CSC443</a>), and Programming on the Web (<a href="https://www.cs.toronto.edu/~kianoosh/courses/csc309/#team" class="nolinks-light-grey">Lead-TA CSC309</a>).</p>
+        </div>
+
+        <div class="card-entry">
           <h3>Software Engineer, Digikala.com</h3>
-          <p><strong>Jul 2022 – Dec 2022</strong> — <a class=nolinks-light-grey href="https://www.digikala.com/">Digikala</a> is the biggest e-commerce company in the middle east. First, I worked on a complicated refactoring project with more than tens of thousands of lines of monolithic code, which included complex product logic. Then, my team and I were in charge of enhancing the project to Service-oriented architecture because of the auto-scalability and maintainability it provides.</p>
+          <p><strong>Jul 2022 – Dec 2022</strong> — <a class="nolinks-light-grey" href="https://www.digikala.com/">Digikala</a> is the biggest e-commerce company in the middle east. First, I worked on a complicated refactoring project with more than tens of thousands of lines of monolithic code, which included complex product logic. Then, my team and I were in charge of enhancing the project to Service-oriented architecture because of the auto-scalability and maintainability it provides.</p>
         </div>
-        <div>
+
+        <div class="card-entry">
           <h3>Co‑founder &amp; CTO, GoldScan</h3>
-          <p><strong>Sep 2020 – Sep 2023</strong> — In <a class=nolinks-light-grey href="https://www.goldscanco.com/">GoldScan</a>, I led a team to develop an efficient back-testing engine with a strategy optimizer for automated trading, covering crypto, stock markets, and forex. Built and optimized quantitative trading strategies to support dozens of traders. Worked on crypto arbitrage for inter-exchange and intra-exchange profit and implemented an online trading execution platform.</p>
+          <p><strong>Sep 2020 – Sep 2023</strong> — In <a class="nolinks-light-grey" href="https://www.goldscanco.com/">GoldScan</a>, I led a team to develop an efficient back-testing engine with a strategy optimizer for automated trading, covering crypto, stock markets, and forex. Built and optimized quantitative trading strategies to support dozens of traders. Worked on crypto arbitrage for inter-exchange and intra-exchange profit and implemented an online trading execution platform.</p>
         </div>
-        <div>
-          <h3>Co-founder,  Karaneh</h3>
-          <p><strong>Sep 2018 – Jan 2019</strong> — Organized educational events at middle and high schools to teach students about the financial markets, introducing them to key concepts and mechanisms used in real-world trading and finance.</p>
+
+        <div class="card-entry">
+          <h3>Co-founder, Karaneh</h3>
+          <p><strong>Sep 2018 – Jan 2019</strong> — Organized educational events at middle and high schools to teach students about the financial markets, introducing them to key concepts and mechanisms used in real-world trading and finance.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -249,17 +450,22 @@
   <!-- Projects -->
   <section id="projects" class="bg-white">
     <div class="container">
-      <div class="item">
-        <h2 class="text-center dark">Projects</h2>
-        <div>
+      <div class="item reveal">
+        <span class="section-tag">Building</span>
+        <h2 class="dark">Projects</h2>
+        <span class="accent-bar"></span>
+
+        <div class="card-entry">
           <h3>Trading Infrastructure &amp; Strategy Optimization</h3>
           <p>Developed a scalable and containerized trading system with FastAPI, featuring custom backtesting for different markets, as well as visualization tools and statistical reports. Optimized strategies using Optuna and built a data service for diverse market data on MongoDB.</p>
         </div>
-        <div>
+
+        <div class="card-entry">
           <h3>pytse-client</h3>
           <p><a class="nolinks" href="https://github.com/Glyphack/pytse-client" target="_blank">pytse-client</a> is an async Python client for Tehran Stock Exchange data. I implemented fast OHLCV and order book retrieval and statistical analysis with robust testing.</p>
         </div>
-        <div>
+
+        <div class="card-entry">
           <h3>Crypto Arbitrage System</h3>
           <p>Designed inter‑ and intra‑exchange arbitrage algorithms, combining order book modeling with classical AI for risk‑aware execution across multiple venues.</p>
         </div>
@@ -267,21 +473,62 @@
     </div>
   </section>
 
-  
   <!-- Contact -->
   <section id="contactMe" class="bg-black contact-section">
-    <div class="container everything-center">
+    <div class="container everything-center reveal">
       <div class="contact-icons">
         <a href="mailto:smaghrebi@cs.toronto.edu" aria-label="Email"><i class="fa fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/smaghrebi" target="_blank" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
         <a href="https://github.com/sfmqrb" target="_blank" aria-label="GitHub"><i class="fa fa-github"></i></a>
-        <a href="https://scholar.google.ca/citations?user=o5Hk5MoAAAAJ&hl=en" target="_blank" aria-label="Scholar">
-          <i class="fa fa-graduation-cap"></i>
-        </a>
+        <a href="https://scholar.google.ca/citations?user=o5Hk5MoAAAAJ&hl=en" target="_blank" aria-label="Scholar"><i class="fa fa-graduation-cap"></i></a>
       </div>
     </div>
   </section>
 
+  <script>
+    // Reveal-on-scroll
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Side-rail active section tracking
+    (function () {
+      var links = document.querySelectorAll('.siderail a');
+      if (!links.length || !('IntersectionObserver' in window)) return;
+      var byId = {};
+      links.forEach(function (a) {
+        var id = a.getAttribute('href').slice(1);
+        byId[id] = a;
+      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var a = byId[entry.target.id];
+          if (!a) return;
+          if (entry.isIntersecting) {
+            links.forEach(function (l) { l.classList.remove('active'); });
+            a.classList.add('active');
+          }
+        });
+      }, { threshold: 0.4 });
+      Object.keys(byId).forEach(function (id) {
+        var sec = document.getElementById(id);
+        if (sec) io.observe(sec);
+      });
+    })();
+  </script>
+
 </body>
 </html>
-
