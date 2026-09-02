@@ -379,22 +379,8 @@
   let saved=null;
   try{saved=localStorage.getItem(KEY);}catch(e){}
   apply(saved==='light'?'light':'dark');
-  const say=document.getElementById('saybtn');
-  if('speechSynthesis' in window){
-    // Persian غ is /ɣ/: no English voice has it. Prefer a Persian voice, then French (its r ≈ ɣ), then English.
-    say.addEventListener('click',()=>{
-      const v=speechSynthesis.getVoices();
-      const pick=l=>v.find(x=>x.lang.toLowerCase().startsWith(l));
-      const [voice,text]=pick('fa')?[pick('fa'),'سجاد فغفور مغربی']:
-        pick('fr')?[pick('fr'),'Sadjad, Farfour, Marrébi']:
-        [null,'Sajjad, Fah-foor, Mah-reh-bee'];
-      speechSynthesis.cancel();
-      const u=new SpeechSynthesisUtterance(text);
-      if(voice){u.voice=voice;u.lang=voice.lang;}
-      u.rate=.85; speechSynthesis.speak(u);
-    });
-    speechSynthesis.getVoices(); // warms the async voice list so the first click sees it
-  }else say.hidden=true;
+  const name=new Audio('name.mp3');
+  document.getElementById('saybtn').addEventListener('click',()=>{name.currentTime=0;name.play();});
   btn.addEventListener('click',()=>{
     const next=root.getAttribute('data-theme')==='light'?'dark':'light';
     apply(next);
