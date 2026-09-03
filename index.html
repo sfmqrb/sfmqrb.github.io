@@ -141,6 +141,7 @@
 
     /* paper panel (styled like a file view) */
     .diff{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--panel)}
+    .diff+.diff{margin-top:18px}
     .diff .bar{display:flex;justify-content:space-between;gap:12px;padding:8px 14px;border-bottom:1px solid var(--line);
       font-size:.74rem;color:var(--dim)}
     .paper{display:flex;gap:20px;align-items:center;padding:20px 18px}
@@ -231,7 +232,6 @@
 <section id="about">
   <div class="wrap">
     <p class="label">about</p>
-    <h2>Sound on paper. Fast in the wild.</h2>
     <p>I'm <b><a href="https://sfmqrb.github.io/rishe/#roots/Masgd%C3%A2">Sajad</a> <a href="https://sfmqrb.github.io/rishe/#roots/Bhag">Faghfoor</a> <a href="https://sfmqrb.github.io/rishe/#roots/Er%C4%9Bbu">Maghrebi</a></b> <span class="say">(sa-JAAD · fagh-FOOR · magh-reh-BEE) <button id="saybtn" type="button" aria-label="Hear the pronunciation">▶ hear it</button></span>. I work on indexes and the data structures underneath them. What I like about this area is that you have to get two things right at once: the algorithm has to be sound, with real bounds on space and time, and the implementation has to respect the machine, where cache lines, branch predictors, and memory bandwidth decide what is actually fast. I find the best ideas usually come from taking both sides seriously.</p>
     <p class="cmt">// lately: scalable vector indexes, the piece that makes semantic search in AI systems affordable.</p>
     <div class="others">
@@ -248,7 +248,20 @@
 <section id="publications">
   <div class="wrap">
     <p class="label">publications</p>
-    <h2>A perfect hash index that fits in the cache.</h2>
+    <div class="diff">
+      <div class="bar"><span>powerlaw.pdf</span><span>arXiv 2026</span></div>
+      <div class="paper">
+        <img src="images/graph.png" alt="Graph search icon">
+        <div>
+          <h3>A Power Law in Logarithm's Clothing: On the Scalability of Graph-Based Vector Search</h3>
+          <p class="auth">Sajad Faghfoor Maghrebi, Navid Eslami &amp; Niv Dayan</p>
+          <p class="links">
+            <a href="https://arxiv.org/pdf/2609.02143">pdf</a>
+            <a href="https://arxiv.org/abs/2609.02143">arxiv</a>
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="diff">
       <div class="bar"><span>sphinx.pdf</span><span>VLDB 2025</span></div>
       <div class="paper">
@@ -264,7 +277,6 @@
         </div>
       </div>
     </div>
-    <p class="vcap cmt">// succinct in theory, and built around what x86 does well.</p>
   </div>
 </section>
 
