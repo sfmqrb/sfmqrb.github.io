@@ -106,6 +106,13 @@
     .x a+a{margin-left:.9rem}
     .fa{color:var(--dim);font-weight:400;margin-left:.3rem}
 
+    /* project glyphs, drawn in the theme's own colors */
+    .fig{position:relative;padding-left:5.75rem}
+    .fig::before{content:"";position:absolute;left:0;top:.2rem;width:4.5rem;aspect-ratio:4/3;
+      background:var(--dim);mask:var(--i) center/contain no-repeat;transition:background .2s}
+    .fig:hover::before{background:var(--acc)}
+    @media(max-width:44rem){.fig{padding-left:4.5rem}.fig::before{width:3.5rem}}
+
     footer{color:var(--dim);font-size:.95rem}
     footer .q{font-style:italic;color:var(--fg)}
   </style>
@@ -149,17 +156,17 @@
 <section class="row" id="publications">
   <h2>Publications</h2>
   <ul>
-    <li>
+    <li class="fig" style="--i:url(images/coloring.png)">
       <h3>An <i>n</i><sup>1/<i>O</i>(log* <i>n</i>)</sup> Lower Bound for Online Coloring of <i>k</i>-Colorable Graphs</h3>
       <p class="sub"><span class="me">Sajad Faghfoor Maghrebi</span></p>
       <p class="sub"><i>arXiv</i> 2026<span class="x"><a href="https://arxiv.org/pdf/2611.29672">PDF</a><a href="https://github.com/sfmqrb/lean-verifications-k-colorable">Lean</a></span></p>
     </li>
-    <li>
+    <li class="fig" style="--i:url(images/graph.png)">
       <h3>A Power Law in Logarithm's Clothing: On the Scalability of Graph-Based Vector Search</h3>
       <p class="sub"><span class="me">Sajad Faghfoor Maghrebi</span>, Navid Eslami, and Niv Dayan</p>
       <p class="sub"><i>arXiv</i> 2026<span class="x"><a href="https://arxiv.org/pdf/2609.02143">PDF</a></span></p>
     </li>
-    <li>
+    <li class="fig" style="--i:url(images/sphinx.png)">
       <h3>Sphinx: A Succinct Perfect Hash Index for x86</h3>
       <p class="sub"><span class="me">Sajad Faghfoor Maghrebi</span> and Niv Dayan</p>
       <p class="sub"><i>VLDB</i> 2025<span class="x"><a href="https://www.vldb.org/pvldb/vol18/p4424-maghrebi.pdf">PDF</a><a href="https://github.com/sfmqrb/sphinx">Code</a></span></p>
@@ -170,11 +177,11 @@
 <section class="row" id="slides">
   <h2>Talks</h2>
   <ul>
-    <li>
+    <li class="fig" style="--i:url(images/slides.svg)">
       <h3>Graph-Based Indexes for Approximate Nearest Neighbor Search: From Guarantees to Practice</h3>
       <p class="sub"><span class="x" style="margin:0"><a href="slides/graph-indexes">Slides</a></span></p>
     </li>
-    <li>
+    <li class="fig" style="--i:url(images/slides-sphinx.svg)">
       <h3>Sphinx: A Succinct Perfect Hash Index for x86</h3>
       <p class="sub"><span class="x" style="margin:0"><a href="slides/sphinx">Slides</a><a href="https://www.youtube.com/watch?v=bba700fw7Jg">Video</a></span></p>
     </li>
